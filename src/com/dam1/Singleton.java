@@ -9,12 +9,16 @@ public class Singleton {
 
 
     }
-    public static final Singleton getInstance(){
+    private static Singleton instance = null;
 
-        return getInstance();
-
+    public static Singleton getInstance() {
+        if (instance == null) {
+            // desde aqui si que puedo acceder al constructor
+            // porque estoy en la misma clase
+            instance = new Singleton();
+        }
+        return instance;
     }
-
     public String getNombre() {
         return nombre;
     }
